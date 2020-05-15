@@ -3,4 +3,12 @@
     <string name="title_home">Om Appen</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="about_app">Det här är appen för dig som vill lära dig mer om världens längsta
+        floder, om det så är bara som en kul grej eller om du är intresserad av ämnet. Ja även för
+        dig som behöver lite rolig fakta till ett skolarbete.</string>
+    <string name="river_infos">Vi besöker asien, afrika och både nord- och sydamerika. För att få
+        en liten kännsla av hem har även Europas två längsta floder inkluderats.
+        Här får du lära dig några "fun facts" om några utvalda floder.</string>
+    <string name="about_list">För att se informationen om den flod du vill lära dig mer om klickar
+        på bara på namnet i listan så får du allt som har samlats om floden i denna appen.</string>
 </resources>
