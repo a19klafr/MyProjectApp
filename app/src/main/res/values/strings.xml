@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Fun with Rivers</string>
     <string name="title_home">Om Appen</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_dashboard">Floder</string>
     <string name="title_notifications">Notifications</string>
     <string name="about_app">Det här är appen för dig som vill lära dig mer om världens längsta
         floder, om det så är bara som en kul grej eller om du är intresserad av ämnet. Ja även för
