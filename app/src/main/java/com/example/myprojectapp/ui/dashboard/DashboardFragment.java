@@ -7,6 +7,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +20,10 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myprojectapp.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,6 +31,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class DashboardFragment extends Fragment {
 
@@ -41,6 +49,7 @@ public class DashboardFragment extends Fragment {
                 textView.setText(s);
             }
         });
+        new JsonTask().execute("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?login=a19klafr");
         return root;
     }
     @SuppressLint("StaticFieldLeak")
@@ -48,6 +57,12 @@ public class DashboardFragment extends Fragment {
 
         private HttpURLConnection connection = null;
         private BufferedReader reader = null;
+
+        private ArrayList<String> riverNames=new ArrayList<String>();
+        private ArrayList<String> riverLocation=new ArrayList<String>();
+        private ArrayList<Integer> riverLength=new ArrayList<Integer>();
+        private ArrayList<String> riverImg=new ArrayList<String>();
+
 
         protected String doInBackground(String... params) {
             try {
@@ -86,6 +101,27 @@ public class DashboardFragment extends Fragment {
         @Override
         protected void onPostExecute(String json) {
             Log.d("TAG", json);
+            try {
+                JSONArray jsonArray = new JSONArray(json);
+                for(int i = 0; i < jsonArray.length(); i++){
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    String name = jsonObject.getString("name");
+                    String location = jsonObject.getString("location");
+                    int height = jsonObject.getInt("size");
+                    String image = jsonObject.getString("auxdata");
+
+                    riverNames.add(name);
+                    riverLocation.add(location);
+                    riverLength.add(height);
+                    riverImg.add(image);
+                }
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>
+                        (DashboardFragment.this, R.layout.list_items, R.id.listview_items, riverNames);
+
+            }
+            catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
