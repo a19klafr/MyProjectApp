@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
@@ -29,5 +31,14 @@ public class SecondActivity extends AppCompatActivity {
             textLocation.setText(location);
             textLength.setText(String.valueOf(length));
         }
+
+        Button close = findViewById(R.id.close_details);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 }
