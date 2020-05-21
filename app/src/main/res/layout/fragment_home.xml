@@ -20,25 +20,27 @@
             android:text="Världens Floder"
             android:textColor="@color/colorPrimary"
             android:textAlignment="center"
-            android:textSize="40sp" />
+            android:layout_gravity="center"
+            android:textSize="40sp"
+            android:typeface="serif"/>
 
         <TextView
             android:id="@+id/target_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="40dp"
-            android:text="@string/about_app"
             android:layout_marginHorizontal="10dp"
+            android:text="@string/about_app"
             android:padding="10dp"
-            android:background="@color/colorAccentLight"/>
+            android:background="@color/colorAccentDark"/>
 
         <TextView
             android:id="@+id/river_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="40dp"
-            android:text="@string/river_infos"
             android:layout_marginHorizontal="10dp"
+            android:text="@string/river_infos"
             android:padding="10dp"
             android:background="@color/colorAccent"/>
 
@@ -46,8 +48,9 @@
             android:id="@+id/text_instruction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/about_list"
+            android:layout_marginBottom="40dp"
             android:layout_marginHorizontal="10dp"
+            android:text="@string/about_list"
             android:padding="10dp"
             android:background="@color/colorAccentDark"/>
 
