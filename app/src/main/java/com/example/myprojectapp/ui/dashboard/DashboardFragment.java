@@ -1,6 +1,7 @@
 package com.example.myprojectapp.ui.dashboard;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myprojectapp.R;
+import com.example.myprojectapp.SecondActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -125,6 +127,12 @@ public class DashboardFragment extends Fragment {
                             Log.d("MSG", riverNames.get(i) + ", " + riverLocation.get(i)
                                     + ", " + riverLength.get(i));
 
+                            Intent intent = new Intent(getActivity(), SecondActivity.class);
+                            intent.putExtra("name", riverNames.get(i));
+                            intent.putExtra("location", riverLocation.get(i));
+                            intent.putExtra("length", riverLength.get(i));
+                            intent.putExtra("image", riverImg.get(i));
+                            startActivity(intent);
                         }
                 });
 
