@@ -14,33 +14,38 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="250dp"/>
 
         <TextView
             android:id="@+id/text_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:textSize="40sp"
+            android:typeface="serif"
+            android:textColor="@color/colorPrimary" />
+
 
         <TextView
-            android:id="@+id/text_location"
+            android:id="@+id/text_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/text_length"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="100dp"/>
 
         <Button
             android:id="@+id/close_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tillbaka"
+            android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
-            android:layout_marginRight="200dp"/>
+            android:layout_marginEnd="200dp"
+            android:layout_marginRight="200dp"
+            android:typeface="serif"
+            android:background="@color/colorAccentLight" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

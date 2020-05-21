@@ -19,8 +19,7 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
 
         TextView textName = findViewById(R.id.text_name);
-        TextView textLocation = findViewById(R.id.text_location);
-        TextView textLength = findViewById(R.id.text_length);
+        TextView textInfo = findViewById(R.id.text_info);
         ImageView imageView = findViewById(R.id.imageView);
 
         Bundle extras = getIntent().getExtras();
@@ -28,13 +27,14 @@ public class SecondActivity extends AppCompatActivity {
 
             String name = extras.getString("name");
             String location = extras.getString("location");
-            int length = extras.getInt("length");
             String image = extras.getString("image");
+            int riverlength = extras.getInt("length");
+            String length = String.valueOf(riverlength);
 
 
             textName.setText(name);
-            textLocation.setText(location);
-            textLength.setText(String.valueOf(length));
+            textInfo.setText("Floden " + name + " sträcker sig genom " + location + " och är "
+                    + length + "km lång");
             Picasso.get().load(image).into(imageView);
         }
 
