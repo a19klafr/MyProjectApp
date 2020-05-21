@@ -107,16 +107,26 @@ public class DashboardFragment extends Fragment {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                     String name = jsonObject.getString("name");
                     String location = jsonObject.getString("location");
-                    int height = jsonObject.getInt("size");
+                    int length = jsonObject.getInt("size");
                     String image = jsonObject.getString("auxdata");
 
                     riverNames.add(name);
                     riverLocation.add(location);
-                    riverLength.add(height);
+                    riverLength.add(length);
                     riverImg.add(image);
                 }
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>
-                        (DashboardFragment.this, R.layout.list_items, R.id.listview_items, riverNames);
+                        (getView().getContext(), R.layout.list_items, R.id.listview_items, riverNames);
+                ListView riverList = (ListView)getActivity().findViewById(R.id.river_list_view);
+                riverList.setAdapter(adapter);
+                riverList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                            Log.d("MSG", riverNames.get(i) + ", " + riverLocation.get(i)
+                                    + ", " + riverLength.get(i));
+
+                        }
+                });
 
             }
             catch (JSONException e) {
